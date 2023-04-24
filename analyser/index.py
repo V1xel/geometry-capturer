@@ -23,14 +23,17 @@ thresh2 = cv2.threshold(diff2, 25, 255, cv2.THRESH_BINARY)[1]
 thresh = cv2.bitwise_and(thresh1, thresh2)
 
 # Define a kernel for morphological operations
-kernel = np.ones((5, 5), np.uint8)
+kernel = np.ones((3, 3), np.uint8)
 
 # Perform morphological operations to fill in gaps and remove noise
 closed = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
-opened = cv2.morphologyEx(closed, cv2.MORPH_OPEN, kernel)
+#opened = cv2.morphologyEx(closed, cv2.MORPH_OPEN, kernel)
+
+cv2.imshow('closed', closed)
+#cv2.imshow('opened', opened)
 
 # Detect edges in the resulting image
-edges = cv2.Canny(opened, 50, 100, apertureSize=3)
+edges = cv2.Canny(closed, 50, 100, apertureSize=3)
 
 # Perform Hough Line Transform to detect lines in the image
 lines = cv2.HoughLinesP(edges, rho=1, theta=np.pi/180, threshold=100, minLineLength=10, maxLineGap=5)

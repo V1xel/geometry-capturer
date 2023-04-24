@@ -24,7 +24,6 @@ lines = cv2.HoughLinesP(
     maxLineGap=10  # Max allowed gap between line for joining them
 )
 
-
 for points in lines:
 
     x1, y1, x2, y2 = points[0]

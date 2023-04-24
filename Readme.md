@@ -1,0 +1,1 @@
+#Experimenting with OpenCV, trying to extract base environment surfaces from game frames.

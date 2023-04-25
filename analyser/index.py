@@ -4,13 +4,10 @@ import mss
 import pygetwindow as gw
 
 # Set the maximum number of lines to store
-max_lines = 10
+max_lines = 50
 
 # Initialize an empty list to store the lines
 lines = []
-
-# Define the region of the screen to capture
-region = (0, 0, 1920, 1080)
 
 # Initialize the screen capture object
 sct = mss.mss()

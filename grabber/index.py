@@ -12,10 +12,10 @@ window = gw.getWindowsWithTitle(
 with mss.mss() as sct:
     sct_img = sct.grab(
         {
-            "top": window.top,
-            "left": window.left,
-            "width": window.width,
-            "height": window.height,
+            "top": window.top + 35,
+            "left": window.left + 10,
+            "width": window.width - 20,
+            "height": window.height - 45,
         }
     )
     mss.tools.to_png(sct_img.rgb, sct_img.size, output="screenshot.png")
